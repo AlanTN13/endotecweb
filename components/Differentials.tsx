@@ -3,29 +3,22 @@
 import { Shield, Users, Layers, Microscope } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 const Differentials = () => {
-    const items = [
-        {
-            icon: <Microscope size={32} />,
-            title: 'Especialización técnica real',
-            description: 'Personal capacitado en las fábricas de origen con certificación internacional.',
-        },
-        {
-            icon: <Users size={32} />,
-            title: 'Atención personalizada',
-            description: 'Acompañamiento en cada etapa de su compra o servicio técnico.',
-        },
-        {
-            icon: <Layers size={32} />,
-            title: 'Equipos testeados',
-            description: 'Controles de calidad rigurosos antes de cada entrega bajo normas ISO.',
-        },
-        {
-            icon: <Shield size={32} />,
-            title: 'Garantía y trazabilidad',
-            description: 'Historia completa de mantenimiento y repuestos de cada equipo.',
-        },
+    const { t } = useLanguage();
+
+    const icons = [
+        <Microscope size={32} key="m" />,
+        <Users size={32} key="u" />,
+        <Layers size={32} key="l" />,
+        <Shield size={32} key="s" />
     ];
+
+    const items = t.differentials.items.map((item, index) => ({
+        ...item,
+        icon: icons[index]
+    }));
 
     return (
         <section id="nosotros" className="py-24 bg-gray-50/30">

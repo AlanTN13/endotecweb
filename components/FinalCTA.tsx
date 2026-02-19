@@ -1,8 +1,11 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const FinalCTA = () => {
+    const { t } = useLanguage();
+
     return (
         <section id="contacto" className="py-24 bg-white">
             <div className="max-w-5xl mx-auto px-4">
@@ -19,26 +22,26 @@ const FinalCTA = () => {
 
                     <div className="relative z-10 space-y-10">
                         <h2 className="text-4xl md:text-6xl font-black leading-tight tracking-tight">
-                            ¿Listo para optimizar <br />
-                            <span className="opacity-80">su centro médico?</span>
+                            {t.cta.title} <br />
+                            <span className="opacity-80">{t.cta.titleAccent}</span>
                         </h2>
                         <p className="text-white/80 text-lg md:text-xl max-w-2xl mx-auto font-medium">
-                            Cotizaciones al instante y asesoramiento especializado por ingenieros técnicos certificados.
+                            {t.cta.description}
                         </p>
                         <div className="flex flex-col sm:flex-row justify-center gap-6">
                             <a
-                                href="https://wa.me/5491136427339"
+                                href="https://wa.me/5491125793777"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-white text-brand-primary px-12 py-6 rounded-2xl font-bold text-xl hover:shadow-[0_20px_40px_-10px_rgba(255,255,255,0.4)] transition-all hover:-translate-y-1 active:scale-95"
                             >
-                                Solicitar presupuesto
+                                {t.cta.button}
                             </a>
                             <a
-                                href="mailto:info@endotec.com.ar"
+                                href={t.cta.emailHref}
                                 className="border-2 border-white/30 text-white px-12 py-6 rounded-2xl font-bold text-xl hover:bg-white/10 transition-all active:scale-95 backdrop-blur-sm"
                             >
-                                Enviar Email
+                                {t.cta.email}
                             </a>
                         </div>
                     </div>

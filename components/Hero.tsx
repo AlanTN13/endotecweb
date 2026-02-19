@@ -3,8 +3,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const Hero = () => {
+    const { t } = useLanguage();
+
     return (
         <section className="relative py-16 md:py-32 bg-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4 relative z-10">
@@ -17,10 +20,10 @@ const Hero = () => {
                             transition={{ duration: 0.8, ease: "easeOut" }}
                         >
                             <span className="inline-block px-4 py-1.5 bg-brand-primary/10 text-brand-primary text-sm font-bold rounded-full mb-6">
-                                Líderes en Tecnología Médica
+                                {t.hero.tag}
                             </span>
                             <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-[1.05] tracking-tight">
-                                Equipamiento médico de <span className="text-brand-primary">nueva generación</span>
+                                {t.hero.title} <span className="text-brand-primary">{t.hero.titleAccent}</span>
                             </h1>
                         </motion.div>
 
@@ -30,8 +33,7 @@ const Hero = () => {
                             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
                             className="text-lg md:text-xl text-gray-600 leading-relaxed max-w-xl"
                         >
-                            Venta, mantenimiento y soporte técnico especializado para equipamiento médico de alta complejidad.
-                            Garantizamos la excelencia operativa de su centro de salud.
+                            {t.hero.description}
                         </motion.p>
 
                         <motion.div
@@ -44,13 +46,13 @@ const Hero = () => {
                                 href="#contacto"
                                 className="bg-brand-primary text-white px-10 py-5 rounded-2xl font-bold text-center hover:bg-brand-dark transition-all shadow-[0_20px_40px_-15px_rgba(11,94,215,0.4)] hover:-translate-y-1 active:scale-95 text-lg"
                             >
-                                Solicitar presupuesto
+                                {t.cta.button}
                             </Link>
                             <Link
                                 href="#servicio-tecnico"
                                 className="border-2 border-gray-200 text-gray-700 px-10 py-5 rounded-2xl font-bold text-center hover:border-brand-primary hover:text-brand-primary transition-all active:scale-95 text-lg flex items-center justify-center gap-2"
                             >
-                                Servicio técnico
+                                {t.nav.techService}
                             </Link>
                         </motion.div>
                     </div>
@@ -85,8 +87,8 @@ const Hero = () => {
                                 <span className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
                             </div>
                             <div>
-                                <p className="text-sm font-bold text-gray-900">Soporte 24/7</p>
-                                <p className="text-xs text-gray-500">Técnicos certificados</p>
+                                <p className="text-sm font-bold text-gray-900">{t.footer.supportTitle}</p>
+                                <p className="text-xs text-gray-500">{t.hero.secondaryCta}</p>
                             </div>
                         </motion.div>
                     </motion.div>

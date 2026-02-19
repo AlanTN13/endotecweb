@@ -21,12 +21,12 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ENDOTEC | Equipamiento Médico y Servicio Técnico Especializado",
-  description: "Líderes en venta, mantenimiento y soporte técnico para equipamiento médico de alta complejidad. Servicio técnico oficial y repuestos originales.",
-  keywords: ["artroscopia", "urología", "gastroenterología", "cirugía general", "servicio técnico médico", "equipamiento médico argentina", "endotec", "mantenimiento hospitalario"],
-  authors: [{ name: "Endotec" }],
+  title: "ENDOTEC SALUD | Equipamiento Médico y Servicio Técnico Especializado",
+  description: "Líderes en venta y servicio técnico de equipamiento médico de mediana y alta complejidad. Especialistas en endoscopia, artroscopia y cirugía general.",
+  keywords: ["endotec", "endotec salud", "equipamiento médico", "servicio técnico médico", "artroscopia", "urología", "gastroenterología"],
+  authors: [{ name: "ENDOTEC SALUD" }],
   openGraph: {
-    title: "ENDOTEC | Equipamiento Médico y Servicio Técnico Especializado",
+    title: "ENDOTEC SALUD | Equipamiento Médico y Servicio Técnico Especializado",
     description: "Venta y mantenimiento de equipamiento médico de alta complejidad.",
     url: "https://endotec.com.ar", // Assuming domain
     siteName: "Endotec",
@@ -39,6 +39,8 @@ export const metadata: Metadata = {
   },
 };
 
+import { LanguageProvider } from "@/context/LanguageContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -49,7 +51,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased selection:bg-brand-primary selection:text-white`}
       >
-        {children}
+        <LanguageProvider>
+          {children}
+        </LanguageProvider>
       </body>
     </html>
   );

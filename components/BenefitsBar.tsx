@@ -3,11 +3,15 @@
 import { Zap, ShieldCheck, Headphones } from 'lucide-react';
 import { motion } from 'framer-motion';
 
+import { useLanguage } from '@/context/LanguageContext';
+
 const BenefitsBar = () => {
+    const { t } = useLanguage();
+
     const benefits = [
-        { icon: <Zap size={22} />, text: 'RESPUESTA RÁPIDA' },
-        { icon: <ShieldCheck size={22} />, text: 'GARANTÍA OFICIAL' },
-        { icon: <Headphones size={22} />, text: 'SOPORTE TÉCNICO 24/7' },
+        { icon: <Zap size={22} />, text: t.benefits.quickResponse },
+        { icon: <ShieldCheck size={22} />, text: t.benefits.guaranteed },
+        { icon: <Headphones size={22} />, text: t.benefits.support },
     ];
 
     return (

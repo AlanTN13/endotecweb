@@ -9,11 +9,16 @@ import { specialtiesData } from '@/lib/specialtiesData';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import { useLanguage } from '@/context/LanguageContext';
 
 export default function SpecialtyDetail() {
     const params = useParams();
     const id = params.id as string;
-    const data = specialtiesData[id];
+    const { language, t } = useLanguage();
+
+    // Safety check for language as key
+    const langKey = (language === 'pt' ? 'pt' : 'es') as 'es' | 'pt';
+    const data = specialtiesData[langKey][id];
 
     if (!data) {
         notFound();
@@ -45,9 +50,9 @@ export default function SpecialtyDetail() {
                             href="/#especialidades"
                             className="inline-flex items-center text-brand-primary font-bold text-sm mb-8 hover:-translate-x-1 transition-transform group"
                         >
-                            <ArrowLeft size={16} className="mr-2" /> Volver a especialidades
+                            <ArrowLeft size={16} className="mr-2" /> {t.specialtyPage.back}
                         </Link>
-                        <span className="text-brand-primary font-bold text-sm tracking-widest uppercase mb-4 block">Especialidad</span>
+                        <span className="text-brand-primary font-bold text-sm tracking-widest uppercase mb-4 block">{t.specialtyPage.tag}</span>
                         <h1 className="text-5xl md:text-7xl font-black text-gray-900 leading-tight mb-6 tracking-tight">
                             {data.title}
                         </h1>
@@ -70,14 +75,14 @@ export default function SpecialtyDetail() {
                             className="space-y-10"
                         >
                             <div className="prose prose-lg max-w-none">
-                                <h2 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">Sobre nuestra tecnología</h2>
+                                <h2 className="text-3xl font-bold text-gray-900 mb-6 tracking-tight">{t.specialtyPage.aboutTitle}</h2>
                                 <p className="text-gray-600 leading-relaxed text-lg">
                                     {data.description}
                                 </p>
                             </div>
 
                             <div className="bg-brand-primary/5 p-8 md:p-10 rounded-[2.5rem] border border-brand-primary/10">
-                                <h3 className="text-2xl font-bold text-brand-primary mb-6">Características destacadas</h3>
+                                <h3 className="text-2xl font-bold text-brand-primary mb-6">{t.specialtyPage.featuresTitle}</h3>
                                 <ul className="space-y-4">
                                     {data.features.map((feature: string, index: number) => (
                                         <li key={index} className="flex items-start gap-4 text-gray-700 font-medium">
@@ -105,7 +110,7 @@ export default function SpecialtyDetail() {
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
                                 <div className="absolute bottom-10 left-10 right-10 text-white">
-                                    <p className="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">Compromiso Endotec</p>
+                                    <p className="text-sm font-bold uppercase tracking-widest mb-2 opacity-80">{t.specialtyPage.commitmentTag}</p>
                                     <h4 className="text-2xl font-bold italic">
                                         "{data.benefits}"
                                     </h4>
@@ -113,14 +118,14 @@ export default function SpecialtyDetail() {
                             </div>
 
                             <div className="mt-10 bg-white p-8 rounded-[2.5rem] shadow-xl border border-gray-100 text-center">
-                                <h3 className="text-xl font-bold text-gray-900 mb-6">¿Desea recibir una cotización detallada?</h3>
+                                <h3 className="text-xl font-bold text-gray-900 mb-6">{t.specialtyPage.quoteCta}</h3>
                                 <a
-                                    href={`https://wa.me/5491136427339?text=Hola! Me interesa recibir más información sobre ${data.title}`}
+                                    href={`https://wa.me/5491125793777?text=Hola! Me interesa recibir más información sobre ${data.title}`}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="inline-flex items-center justify-center bg-brand-primary text-white w-full py-5 rounded-2xl font-bold text-lg hover:shadow-xl hover:shadow-brand-primary/20 transition-all active:scale-95"
                                 >
-                                    Solicitar Información <ChevronRight size={20} className="ml-2" />
+                                    {t.specialtyPage.infoBtn} <ChevronRight size={20} className="ml-2" />
                                 </a>
                             </div>
                         </motion.div>

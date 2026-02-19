@@ -1,18 +1,16 @@
 'use client';
 
-import { CheckCircle2, MessageSquare, Info } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { CheckCircle2, MessageSquare, Info, X, Check } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useLanguage } from '@/context/LanguageContext';
 
 const TechService = () => {
-    const services = [
-        'Diagnóstico y evaluación avanzada',
-        'Reparación especializada de óptica',
-        'Mantenimiento preventivo programado',
-        'Pruebas y calibración bajo norma',
-    ];
+    const { t } = useLanguage();
+    const [isModalOpen, setIsModalOpen] = useState(false);
 
     return (
-        <section id="servicio-tecnico" className="py-24 bg-white overflow-hidden">
+        <section id="servicio-tecnico" className="relative py-24 bg-white overflow-hidden">
             <div className="max-w-6xl mx-auto px-4">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     {/* Left Column */}
@@ -24,11 +22,11 @@ const TechService = () => {
                             transition={{ duration: 0.8 }}
                         >
                             <span className="text-brand-primary font-bold text-sm uppercase tracking-[0.3em] mb-4 block">
-                                Laboratorio Propio
+                                {t.techService.tag}
                             </span>
                             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight">
-                                Servicio técnico <br />
-                                <span className="text-brand-primary italic">de alta precisión</span>
+                                {t.techService.title} <br />
+                                <span className="text-brand-primary italic">{t.techService.titleAccent}</span>
                             </h2>
                         </motion.div>
 
@@ -39,11 +37,11 @@ const TechService = () => {
                             transition={{ delay: 0.2, duration: 0.8 }}
                             className="text-xl text-gray-600 leading-relaxed font-light"
                         >
-                            Contamos con especialistas certificados y laboratorios equipados con tecnología alemana para asegurar el rendimiento óptimo de su equipamiento.
+                            {t.techService.description}
                         </motion.p>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                            {services.map((service, idx) => (
+                            {t.techService.services.map((service, idx) => (
                                 <motion.div
                                     key={service}
                                     initial={{ opacity: 0, y: 10 }}
@@ -68,17 +66,20 @@ const TechService = () => {
                             className="flex flex-col sm:flex-row gap-5 pt-6"
                         >
                             <a
-                                href="https://wa.me/5491136427339"
+                                href="https://wa.me/5491125793777"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="bg-[#25D366] text-white px-10 py-5 rounded-2xl font-bold flex items-center justify-center space-x-3 hover:shadow-[0_20px_40px_-10px_rgba(37,211,102,0.3)] transition-all active:scale-95 text-lg"
                             >
                                 <MessageSquare size={22} fill="currentColor" />
-                                <span>Consulta Técnica</span>
+                                <span>{t.techService.cta}</span>
                             </a>
-                            <button className="border-2 border-gray-100 text-gray-700 px-10 py-5 rounded-2xl font-bold flex items-center justify-center space-x-3 hover:border-brand-primary hover:text-brand-primary transition-all active:scale-95 text-lg bg-white">
+                            <button
+                                onClick={() => setIsModalOpen(true)}
+                                className="border-2 border-gray-100 text-gray-700 px-10 py-5 rounded-2xl font-bold flex items-center justify-center space-x-3 hover:border-brand-primary hover:text-brand-primary transition-all active:scale-95 text-lg bg-white"
+                            >
                                 <Info size={22} />
-                                <span>Info de Garantía</span>
+                                <span>{t.techService.warranty}</span>
                             </button>
                         </motion.div>
                     </div>
@@ -106,11 +107,11 @@ const TechService = () => {
                                     </div>
                                 </div>
                                 <h3 className="text-white text-4xl md:text-5xl font-black tracking-tight leading-none uppercase">
-                                    Precision<br />
-                                    <span className="text-brand-primary text-2xl tracking-[0.2em] font-light">Laboratory</span>
+                                    {t.techService.labName}<br />
+                                    <span className="text-brand-primary text-2xl tracking-[0.2em] font-light">{t.techService.labSub}</span>
                                 </h3>
                                 <p className="text-white/40 text-sm max-w-[240px] mx-auto font-medium tracking-widest leading-relaxed">
-                                    CERTIFIED TECHNICAL EXCELLENCE BY ENDOTEC ARGENTINA
+                                    {t.techService.cert}
                                 </p>
                             </div>
                         </div>
@@ -120,6 +121,72 @@ const TechService = () => {
                     </motion.div>
                 </div>
             </div>
+
+            {/* Warranty Modal */}
+            <AnimatePresence>
+                {isModalOpen && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setIsModalOpen(false)}
+                            className="absolute inset-0 bg-brand-dark/60 backdrop-blur-sm"
+                        />
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="relative bg-white w-full max-w-xl rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
+                        >
+                            <div className="p-8 md:p-12">
+                                <button
+                                    onClick={() => setIsModalOpen(false)}
+                                    className="absolute top-8 right-8 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full"
+                                >
+                                    <X size={24} />
+                                </button>
+
+                                <div className="space-y-8">
+                                    <div>
+                                        <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary mb-6">
+                                            <CheckCircle2 size={32} />
+                                        </div>
+                                        <p className="text-brand-primary font-bold text-sm uppercase tracking-widest mb-2">
+                                            {t.techService.warrantyModal.subtitle}
+                                        </p>
+                                        <h3 className="text-4xl font-black text-gray-900 tracking-tight leading-none">
+                                            {t.techService.warrantyModal.title}
+                                        </h3>
+                                    </div>
+
+                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                        {t.techService.warrantyModal.content}
+                                    </p>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                        {t.techService.warrantyModal.points.map((point: string) => (
+                                            <div key={point} className="flex items-center space-x-3 text-gray-700 font-bold bg-gray-50 p-4 rounded-2xl">
+                                                <div className="bg-brand-primary text-white p-1 rounded-full">
+                                                    <Check size={14} />
+                                                </div>
+                                                <span className="text-[13px]">{point}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+
+                                    <button
+                                        onClick={() => setIsModalOpen(false)}
+                                        className="w-full bg-brand-primary text-white py-6 rounded-2xl font-bold text-lg hover:bg-brand-dark transition-all shadow-xl shadow-brand-primary/20 active:scale-95 uppercase tracking-widest"
+                                    >
+                                        {t.techService.warrantyModal.close}
+                                    </button>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
