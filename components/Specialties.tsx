@@ -94,7 +94,7 @@ const Specialties = () => {
                                 <h3 className="text-2xl font-bold text-gray-900 mb-3 tracking-tight">{item.title}</h3>
                                 <p className="text-gray-600 text-[15px] leading-relaxed mb-6 flex-grow">{item.description}</p>
                                 <Link
-                                    href={`#${item.id}`}
+                                    href={`/especialidades/${item.id}`}
                                     className="inline-flex items-center text-brand-primary font-bold text-sm hover:translate-x-1 transition-transform group/link"
                                 >
                                     Ficha técnica <ChevronRight size={18} className="ml-1 group-hover/link:translate-x-1 transition-transform" />

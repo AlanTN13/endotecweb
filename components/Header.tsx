@@ -18,10 +18,10 @@ const Header = () => {
   }, []);
 
   const navLinks = [
-    { name: 'Especialidades', href: '#especialidades' },
-    { name: 'Servicio Técnico', href: '#servicio-tecnico' },
-    { name: 'Nosotros', href: '#nosotros' },
-    { name: 'Contacto', href: '#contacto' },
+    { name: 'Especialidades', href: '/#especialidades' },
+    { name: 'Servicio Técnico', href: '/#servicio-tecnico' },
+    { name: 'Nosotros', href: '/#nosotros' },
+    { name: 'Contacto', href: '/#contacto' },
   ];
 
   return (
@@ -52,7 +52,7 @@ const Header = () => {
             </Link>
           ))}
           <Link
-            href="#contacto"
+            href="/#contacto"
             className="bg-brand-primary text-white px-6 py-3 rounded-xl font-bold hover:bg-brand-dark transition-all shadow-[0_10px_20px_-5px_rgba(11,94,215,0.4)] active:scale-95 text-sm uppercase tracking-wider"
           >
             Presupuesto
@@ -90,7 +90,7 @@ const Header = () => {
                 </Link>
               ))}
               <Link
-                href="#contacto"
+                href="/#contacto"
                 className="bg-brand-primary text-white px-6 py-4 rounded-2xl font-bold text-center text-lg shadow-xl"
                 onClick={() => setIsOpen(false)}
               >
