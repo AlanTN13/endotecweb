@@ -109,7 +109,7 @@ export const translations = {
             phoneHref: 'tel:+5491125793777'
         },
         footer: {
-            description: 'Líderes en provisión de tecnología médica y soporte técnico de alta complejidad. Comprometidos con la excelencia en salud.',
+            description: 'Líderes en provisión de tecnología médica y soporte técnico de alta complejidad.',
             navTitle: 'Navegación',
             contactTitle: 'Contacto Directo',
             supportTitle: 'Soporte 24/7',
@@ -241,7 +241,7 @@ export const translations = {
             phoneHref: 'tel:+5491125793777'
         },
         footer: {
-            description: 'Líderes no fornecimento de tecnologia médica e suporte técnico de alta complexidade. Comprometidos com a excelência em saúde.',
+            description: 'Líderes no fornecimento de tecnologia médica e suporte técnico de alta complexidade.',
             navTitle: 'Navegação',
             contactTitle: 'Contato Direto',
             supportTitle: 'Suporte 24/7',

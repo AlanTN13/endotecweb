@@ -21,14 +21,17 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  title: "ENDOTEC SALUD | Equipamiento Médico y Servicio Técnico Especializado",
+  title: "Endotec | Equipamiento Médico y Servicio Técnico Especializado",
   description: "Líderes en venta y servicio técnico de equipamiento médico de mediana y alta complejidad. Especialistas en endoscopia, artroscopia y cirugía general.",
   keywords: ["endotec", "endotec salud", "equipamiento médico", "servicio técnico médico", "artroscopia", "urología", "gastroenterología"],
-  authors: [{ name: "ENDOTEC SALUD" }],
+  authors: [{ name: "Endotec" }],
+  icons: {
+    icon: "/favicon.png",
+  },
   openGraph: {
-    title: "ENDOTEC SALUD | Equipamiento Médico y Servicio Técnico Especializado",
+    title: "Endotec | Equipamiento Médico y Servicio Técnico Especializado",
     description: "Venta y mantenimiento de equipamiento médico de alta complejidad.",
-    url: "https://endotec.com.ar", // Assuming domain
+    url: "https://endotec.com.ar",
     siteName: "Endotec",
     locale: "es_AR",
     type: "website",

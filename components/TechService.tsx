@@ -137,47 +137,47 @@ const TechService = () => {
                             initial={{ opacity: 0, scale: 0.9, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                            className="relative bg-white w-full max-w-xl rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100"
+                            className="relative bg-white w-full max-w-xl rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-2xl border border-gray-100 max-h-[90vh] flex flex-col"
                         >
-                            <div className="p-8 md:p-12">
+                            <div className="p-6 md:p-12 overflow-y-auto custom-scrollbar">
                                 <button
                                     onClick={() => setIsModalOpen(false)}
-                                    className="absolute top-8 right-8 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full"
+                                    className="absolute top-6 right-6 md:top-8 md:right-8 text-gray-400 hover:text-gray-600 transition-colors p-2 hover:bg-gray-50 rounded-full z-10"
                                 >
                                     <X size={24} />
                                 </button>
 
-                                <div className="space-y-8">
+                                <div className="space-y-6 md:space-y-8">
                                     <div>
-                                        <div className="w-16 h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary mb-6">
+                                        <div className="w-14 h-14 md:w-16 md:h-16 bg-brand-primary/10 rounded-2xl flex items-center justify-center text-brand-primary mb-4 md:mb-6">
                                             <CheckCircle2 size={32} />
                                         </div>
-                                        <p className="text-brand-primary font-bold text-sm uppercase tracking-widest mb-2">
+                                        <p className="text-brand-primary font-bold text-xs md:text-sm uppercase tracking-widest mb-2">
                                             {t.techService.warrantyModal.subtitle}
                                         </p>
-                                        <h3 className="text-4xl font-black text-gray-900 tracking-tight leading-none">
+                                        <h3 className="text-3xl md:text-4xl font-black text-gray-900 tracking-tight leading-none">
                                             {t.techService.warrantyModal.title}
                                         </h3>
                                     </div>
 
-                                    <p className="text-lg text-gray-600 leading-relaxed font-medium">
+                                    <p className="text-base md:text-lg text-gray-600 leading-relaxed font-medium">
                                         {t.techService.warrantyModal.content}
                                     </p>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
                                         {t.techService.warrantyModal.points.map((point: string) => (
-                                            <div key={point} className="flex items-center space-x-3 text-gray-700 font-bold bg-gray-50 p-4 rounded-2xl">
-                                                <div className="bg-brand-primary text-white p-1 rounded-full">
-                                                    <Check size={14} />
+                                            <div key={point} className="flex items-center space-x-3 text-gray-700 font-bold bg-gray-50 p-4 rounded-xl md:rounded-2xl">
+                                                <div className="bg-brand-primary text-white p-1 rounded-full flex-shrink-0">
+                                                    <Check size={12} />
                                                 </div>
-                                                <span className="text-[13px]">{point}</span>
+                                                <span className="text-[12px] md:text-[13px] leading-tight">{point}</span>
                                             </div>
                                         ))}
                                     </div>
 
                                     <button
                                         onClick={() => setIsModalOpen(false)}
-                                        className="w-full bg-brand-primary text-white py-6 rounded-2xl font-bold text-lg hover:bg-brand-dark transition-all shadow-xl shadow-brand-primary/20 active:scale-95 uppercase tracking-widest"
+                                        className="w-full bg-brand-primary text-white py-5 md:py-6 rounded-xl md:rounded-2xl font-bold text-base md:text-lg hover:bg-brand-dark transition-all shadow-xl shadow-brand-primary/20 active:scale-95 uppercase tracking-widest"
                                     >
                                         {t.techService.warrantyModal.close}
                                     </button>

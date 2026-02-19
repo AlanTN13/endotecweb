@@ -36,11 +36,12 @@ const Header = () => {
     >
       <div className="max-w-6xl mx-auto px-4 w-full flex items-center justify-between transition-all duration-300">
         {/* Logo */}
-        <Link href="/" className="flex items-center space-x-2 group">
-          <span className={`font-black tracking-tighter text-brand-primary transition-all duration-300 ${scrolled ? 'text-2xl' : 'text-3xl'
-            }`}>
-            ENDOTEC SALUD
-          </span>
+        <Link href="/" className="flex items-center group">
+          <img
+            src="/images/logo-endotec.png"
+            alt="Endotec"
+            className={`transition-all duration-300 ${scrolled ? 'h-8' : 'h-12'}`}
+          />
         </Link>
 
         {/* Desktop Navigation */}
